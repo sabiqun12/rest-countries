@@ -8,28 +8,31 @@ import {
 import Home from './components/Home/Home';
 import Country from './components/Country/Country';
 import NoMatch from './components/NoMatch/NoMatch';
+import CountryDetails from './components/CountryDetails/CountryDetails';
 
 
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/country">
-            <Country></Country>
-          </Route>
-          <Route path="*">
-            <NoMatch></NoMatch>
-          </Route>
-        </Switch>
-
-      </Router>
-
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/home">
+          <Home/>
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/country">
+          <Country />
+        </Route>
+        <Route path="/countryName/:counId">
+          <CountryDetails/>
+        </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
